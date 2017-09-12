@@ -1,3 +1,3 @@
 - 导航
-  - [:en: English](/zh-en/)
+  - [:uk: English](/zh-en/)
   - [:cn: 中文](/)

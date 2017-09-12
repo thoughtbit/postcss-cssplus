@@ -8,13 +8,14 @@
   <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 <body>
-  <div data-app id="main">页面拼命加载中...</div>
+  <div data-app id="main">
+    页面拼命加载中...
+  </div>
   <script>
     window.$docsify = {
       el: '#main',
       name: 'cssplus',
       repo: 'https://github.com/thoughtbit/postcss-cssplus',
-
       alias: {
       '.*?/changelog': 'https://github.com/thoughtbit/postcss-cssplus/master/CHANGELOG',
       '/.*/_navbar.md': '/_navbar.md'
@@ -23,7 +24,7 @@
       coverpage: true,
       executeScript: true,
       loadSidebar: true,
-      loadNavbar: true,
+      loadNavbar: false,
       mergeNavbar: true,
       maxLevel: 4,
       subMaxLevel: 2,
