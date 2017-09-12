@@ -57,14 +57,8 @@ export default {
   // https://npmjs.com/package/postcss-font-family-system-ui
   fontFamilySystemUi: (options) => require("postcss-font-family-system-ui")(options),
 
-  // https://npmjs.com/package/postcss-font-variant
-  fontVariant: (options) => require("postcss-font-variant")(options),
-
   // https://npmjs.com/package/pleeease-filters
   filter: (options) => require("pleeease-filters")(options),
-
-  // https://npmjs.com/package/postcss-initial
-  initial: (options) => require("postcss-initial")(options),
 
   // https://npmjs.com/package/pixrem
   rem: (options) => require("pixrem")(options),
@@ -77,9 +71,6 @@ export default {
 
   // https://npmjs.com/package/postcss-selector-not
   pseudoClassNot: (options) => require("postcss-selector-not")(options),
-
-  // https://npmjs.com/package/postcss-pseudo-class-any-link
-  pseudoClassAnyLink: (options) => require("postcss-pseudo-class-any-link")(options),
 
   // https://npmjs.com/package/postcss-color-rgba-fallback
   colorRgba: (options) => require("postcss-color-rgba-fallback")(options),
