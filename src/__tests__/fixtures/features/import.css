@@ -1,0 +1,10 @@
+@import "foo.css";
+@import "foo.css" screen;
+@import url(baz.css);
+@import url(baz.css) screen;
+@import url("foo.css");
+@import url("foo.css") screen and (min-width: 25em);
+@import url('foo.css');
+@import url('foo.css') print, screen and (min-width: 25em);
+
+content{}

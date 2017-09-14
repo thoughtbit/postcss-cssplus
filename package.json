@@ -47,6 +47,7 @@
     "postcss-custom-selectors": "^4.0.1",
     "postcss-font-family-system-ui": "^2.0.1",
     "postcss-image-set-polyfill": "^0.3.5",
+    "postcss-initial": "^2.0.0",
     "postcss-media-minmax": "^3.0.0",
     "postcss-nesting": "^4.1.0",
     "postcss-pseudoelements": "^5.0.0",
