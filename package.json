@@ -1,6 +1,6 @@
 {
   "name": "postcss-cssplus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PostCSS 插件包，一个现代的、灵活的、优雅的CSS解决方案",
   "keywords": [
     "postcss",
@@ -30,7 +30,7 @@
     "chalk": "^2.0.1",
     "pixrem": "^4.0.0",
     "pleeease-filters": "^4.0.0",
-    "postcss": "^6.0.5",
+    "postcss": "^6.0.11",
     "postcss-apply": "^0.8.0",
     "postcss-attribute-case-insensitive": "^2.0.0",
     "postcss-calc": "^6.0.0",
@@ -53,7 +53,10 @@
     "postcss-pseudoelements": "^5.0.0",
     "postcss-replace-overflow-wrap": "^2.0.0",
     "postcss-selector-matches": "^3.0.1",
-    "postcss-selector-not": "^3.0.1"
+    "postcss-selector-not": "^3.0.1",
+    "postcss-short": "^4.1.0",
+    "postcss-fontpath": "^1.0.0",
+    "postcss-simple-utils": "^1.0.1"
   },
   "peerDependencies": {
     "caniuse-lite": "^1.0.30000697"
@@ -67,7 +70,8 @@
     "eslint": "^2.4.0",
     "eslint-plugin-import": "^2.7.0",
     "object-assign": "^3.0.0",
-    "tape": "^4.2.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0",
     "to-slug-case": "^0.1.2",
     "rimraf": "^2.4.3"
   },
@@ -78,9 +82,9 @@
     "#lint": "even if there is a .eslintignore symlink, we use an explicit command because windows don't like unix symlink",
     "lint": "eslint --ignore-path .eslintignore .",
     "#tape": "to avoid really slow tests, we run babel once & run tests on the result",
-    "tape": "tape \"lib/__tests__/*.js\"",
+    "tape": "tape lib/__tests__/*.js | tap-spec",
     "test": "npm run lint && npm run babelify && npm run tape",
-    "release": "npmpub"
+    "pub": "npm publish && git push origin"
   },
   "babel": {
     "presets": [

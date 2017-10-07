@@ -1,4 +1,4 @@
 .element {
-  background: url('/pixel.gif');
-  filter: url('/pixel.svg');
+  background: url('pixel.png');
+  filter: url('pixel.svg');
 }

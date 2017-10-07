@@ -76,6 +76,7 @@ const plugin = postcss.plugin("postcss-cssplus", (options) => {
           ? { ...features[key] }
           : undefined
         )
+
       processor.use(plugin)
     }
   })

@@ -1,0 +1,70 @@
+/* -----------------------------------------------------------------------------
+  utility classes styles
+----------------------------------------------------------------------------- */
+.ellipsis {
+  @utils-ellipsis;
+}
+
+.clearfix {
+  @util clearfix;
+}
+
+.clear {
+  @util clear;
+}
+
+.irt {
+  @utils-irt;
+}
+
+.usn {
+  @util user-select(none);
+}
+
+.disabled {
+  @util disabled(#ccc, #f00, #333);
+}
+
+.center {
+  @util center;
+}
+
+.vertical-center {
+  @util vertical-center;
+}
+
+.center-block {
+  @util center-block;
+}
+
+.hr {
+  @util hr;
+}
+
+.text-hide {
+  @util text-hide;
+}
+
+.sna {
+  @util select-no-appearance;
+}
+
+.wrap { 
+  @util wrap;
+}
+
+.nowrap {
+  @util nowrap;
+}
+
+.arrow {
+  @util triangle;
+}
+
+.rect {
+  @util rect(40,80,'#ff0');
+}
+
+.circle {
+  @util circle(50, '#ff0');
+}

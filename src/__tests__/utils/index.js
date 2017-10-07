@@ -41,6 +41,15 @@ export default {
     const exists = fs.existsSync(filePath)
     return exists && fs.readFileSync(filePath, "utf8").split("\n")[0].trim()
   },
+  
+  /**
+   * exists
+   * @param name 
+   * @param ext 
+   */
+  exists(name, ext) {
+    return fs.existsSync(this.fixturePath(name, ext))
+  },
 
   /**
    * write a result

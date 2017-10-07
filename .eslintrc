@@ -15,7 +15,7 @@
   "extends": "eslint:recommended",
   "rules": {
     "no-console": 0,
-    "prefer-const": [2],
+    "prefer-const": 0,
     "one-var": [2, "never"],
     "no-var": [2],
     "no-bitwise": [2],

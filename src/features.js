@@ -7,15 +7,6 @@ export default {
    * ******************
    */
 
-  // 导入
-  //------------------------------------------------------------------
-
-  // https://npmjs.com/package/postcss-import
-  // import: (options) => require("postcss-import")(options),
-
-  // https://npmjs.com/package/postcss-url
-  // url: (options) => require("postcss-url")(options),
-
   // 下一代语法
   //------------------------------------------------------------------
 
@@ -76,6 +67,9 @@ export default {
   // https://npmjs.com/package/postcss-initial
   initial: (options) => require("postcss-initial")(options),
 
+  // https://npmjs.com/package/pixrem
+  rem: (options) => require("pixrem")(options),  
+
   // https://npmjs.com/package/postcss-pseudoelements
   pseudoElements: (options) => require("postcss-pseudoelements")(options),
 
@@ -92,7 +86,7 @@ export default {
   overflowWrap: (options) => require("postcss-replace-overflow-wrap")(options),
 
   // https://github.com/seaneking/postcss-fontpath
-  // fontPath: (options) => require("postcss-fontpath")(options),
+  fontPath: (options) => require("postcss-fontpath")(options),
 
   // 类似sass语法
   //------------------------------------------------------------------
@@ -100,28 +94,28 @@ export default {
   // https://npmjs.com/package/postcss-mixins
   // mixins: (options) => require("postcss-mixins")(options),
 
+  // https://npmjs.com/package/postcss-extend
+  // extend: (options) => require("postcss-extend")(options),
+
+  // https://npmjs.com/package/postcss-atroot
+  // extend: (options) => require("postcss-atroot")(options),
+  
+  // https://npmjs.com/package/postcss-property-lookup
+  // extend: (options) => require("postcss-property-lookup")(options),
+
   // 属性简写
   //------------------------------------------------------------------
 
-  // https://github.com/seaneking/postcss-short
-  // short: (options) => require("postcss-short")(options),
+  // https://github.com/jonathantneal/postcss-short
+  short: (options) => require("postcss-short")(options),
 
   // 工具类
   //------------------------------------------------------------------
 
-  // https://npmjs.com/package/postcss-simple-reset
-  // reset: (options) => require("postcss-simple-reset")(options),
-
   // https://npmjs.com/package/postcss-simple-utils
-  // utils: (options) => require("postcss-simple-utils")(options),
+  utils: (options) => require("postcss-simple-utils")(options),
 
-  // px to rem
-  //------------------------------------------------------------------
-
-  // https://npmjs.com/package/pixrem
-  rem: (options) => require("pixrem")(options),
-
-  // 优化
+  // 浏览器前缀
   //------------------------------------------------------------------
 
   // https://npmjs.com/package/autoprefixer
