@@ -1,7 +1,7 @@
 {
   "name": "postcss-cssplus",
-  "version": "1.0.1",
-  "description": "PostCSS 插件包，一个现代的、灵活的、优雅的CSS解决方案",
+  "version": "1.0.2",
+  "description": "PostCSS 插件包，一个现代的、灵活的、优雅的 CSS 处理器",
   "keywords": [
     "postcss",
     "postcss-plugin",
