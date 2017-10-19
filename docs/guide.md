@@ -1,4 +1,5 @@
 ## 下一代的 CSS 语法规则
+> 提供了 <a href="https://drafts.csswg.org/selectors-4/">下一代的 CSS 语法规则</a>
 
 ### Variables(变量)
 custom properties &amp; `var()`
@@ -235,8 +236,6 @@ div {
 [Plugin documentation](https://github.com/dmarchena/postcss-color-hsl)
 
 
-
-
 ### Custom selectors
 
 Allows you to create your own selectors
@@ -320,91 +319,7 @@ p:not(:first-child, .special) {
 |
 [Plugin documentation](https://github.com/postcss/postcss-selector-NOT)
 
-### Nesting
-
-Allows you to nest selectors
-
-```css
-.class-name {
-  /* direct nesting (& MUST be the first part of selector)*/
-  & .nesting { ··· } 
-
-  /* @nest rule (for complex nesting) */
-  @nest span & { ··· } 
-
-  /* media query automatic nesting */
-  @media (min-width: 30em) { ··· }
-}
-```
-
-[Specification](http://tabatkins.github.io/specs/css-nesting/)
-|
-[Plugin documentation](https://github.com/jonathantneal/postcss-nesting)
-
-### Extend
-
-### Mixins
-custom properties set &amp; `@apply`
-
-Allows you to store a set of properties in a named custom property,
-then reference them in other style rules.
-
-```css
-:root {
-  --centered: {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  };
-}
-
-.centered {
-  @apply --centered;
-}
-```
-
-⚠️ [_The definitions are **limited to `:root` selector.**_](https://github.com/postcss/postcss-custom-properties#readme)
-
-[Specification](https://tabatkins.github.io/specs/css-apply-rule)
-|
-[Plugin documentation](https://github.com/pascalduez/postcss-apply)
-
-### Mixins properties
-
-## 性能
-
-### automatic vendor prefixes
-
-Vendor prefixes are automatically added (and removed if deprecated/useless
-depending on your browser scope) using
-**[autoprefixer](https://github.com/postcss/autoprefixer)**).
-
-
-### Reset
-
-## 常用方法
-
-## 遍历
-
-
-## px to rem
-
-`rem` unit (`px` fallback)
-
-`rem` fallback to `px`
-(if your browser scope cover old browsers, eg: IE8).
-
-```css
-h1 {
-  font-size: 1.5rem;
-}
-```
-
-[Specification](http://www.w3.org/TR/css3-values/#rem-unit)
-|
-[Plugin documentation](https://github.com/robwierzbowski/node-pixrem)
-
-## `::` pseudo syntax (`:` fallback)
+### `::` pseudo syntax (`:` fallback)
 
 Adjust `::` to `:`
 (if your browser scope cover old browsers, eg: IE8).
@@ -418,9 +333,6 @@ a::before {
 [Specification](http://www.w3.org/TR/css3-selectors/#pseudo-elements)
 |
 [Plugin documentation](https://github.com/axa-ch/postcss-pseudoelements)
-
-## Utils
-
 
 ### `overflow-wrap` property (`word-wrap` fallback)
 
@@ -449,3 +361,611 @@ body {
 [Specification](https://drafts.csswg.org/css-fonts-4/#valdef-font-family-system-ui)
 |
 [Plugin documentation](https://github.com/JLHwung/postcss-font-family-system-ui)
+
+### Mixins
+custom properties set &amp; `@apply`
+
+Allows you to store a set of properties in a named custom property,
+then reference them in other style rules.
+
+```css
+:root {
+  --centered: {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  };
+}
+
+.centered {
+  @apply --centered;
+}
+```
+
+⚠️ [_The definitions are **limited to `:root` selector.**_](https://github.com/postcss/postcss-custom-properties#readme)
+
+[Specification](https://tabatkins.github.io/specs/css-apply-rule)
+|
+[Plugin documentation](https://github.com/pascalduez/postcss-apply)
+
+
+### Nesting (嵌套)
+
+Allows you to nest selectors
+
+```css
+.a, .b {
+  color: red;
+
+  & .c, & .d {
+    color: white;
+  }
+}
+
+.class-name {
+  /* direct nesting (& MUST be the first part of selector)*/
+  & .nesting { ··· } 
+
+  /* @nest rule (for complex nesting) */
+  @nest span & { ··· } 
+
+  /* media query automatic nesting */
+  @media (min-width: 30em) { ··· }
+}
+```
+
+[Specification](http://tabatkins.github.io/specs/css-nesting/)
+|
+[Plugin documentation](https://github.com/jonathantneal/postcss-nesting)
+
+## Rem-to-Pixel
+> 基于 [browser data](http://caniuse.com/rem) 来为不支持 rem 的浏览器或者场景下，提供 rem 的转化成 px 的功能。
+
+`rem` unit (`px` fallback)
+
+`rem` fallback to `px`
+(if your browser scope cover old browsers, eg: IE8).
+
+```css
+/* before */
+.sky {
+  margin: 2.5rem 2px 3em 100%;
+  color: blue;
+}
+@media screen and (min-width: 20rem) {
+  .leaf {
+    margin-bottom: 1.333rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* after */
+.sky {
+  margin: 80px 2px 3em 100%;
+  margin: 2.5rem 2px 3em 100%;
+  color: blue;
+}
+
+@media screen and (min-width: 20rem) {
+  .leaf {
+    margin-bottom: 1.333rem;
+    font-size: 1.5rem;
+  }
+}
+```
+
+[Specification](http://www.w3.org/TR/css3-values/#rem-unit)
+|
+[Plugin documentation](https://github.com/robwierzbowski/node-pixrem)
+
+
+## Autoprefixer
+
+Vendor prefixes are automatically added (and removed if deprecated/useless
+depending on your browser scope) using
+**[autoprefixer](https://github.com/postcss/autoprefixer)**).
+
+
+## Utils
+
+> 提供了 CSS 中常用代码片断的快捷方法声明，如清除浮动，文本超长溢出省略号、清除浮动、垂直居中、图片代替文字、文本换行、三角形等等<a class="link-ul" href="https://github.com/thoughtbit/postcss-simple-utils">Plugin documentation</a>
+
+### ellipsis
+
+`@util ellipsis([rows]);`
+
+```css
+/* before */
+.ellipsis {
+  @utils-ellipsis;
+}
+.ellipsis2 {
+  @utils-ellipsis(3);
+}
+
+/* after */
+.ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.ellipsis2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+```
+
+### clearfix
+
+`@util clearfix;`
+
+```css
+/* before */
+.clearfix {
+  @util clearfix;
+}
+
+/* after */
+.clearfix {
+}
+.clearfix:before, 
+.clearfix:after {
+  display: table;
+  content: ""
+}
+.clearfix:after {
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0
+}
+
+```
+### clear
+
+`@util clear;`
+
+```css
+/* before */
+.clear {
+  @util clear;
+}
+
+/* after */
+.clear {
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+}
+
+```
+
+### image replace text
+
+`@util irt;`
+
+```css
+/* before */
+.irt {
+  @utils-irt;
+}
+
+/* after */
+.irt {
+  font: 0/0 none;
+  text-shadow: none;
+  color: transparent;
+}
+```
+
+### user select
+
+`@util user-select([none|text]);`
+
+```css
+/* before */
+.usn {
+  @util user-select(none);
+}
+
+/* after */
+.usn {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+```
+
+### disabled
+
+`@util disabled([background-color], [border-color], [color]);`
+
+```css
+/* before */
+.disabled {
+  @util disabled(#ccc, #f00, #333);
+}
+
+/* after */
+.disabled {
+  background-color: #ccc;
+  border-color: #f00;
+  color: #333;
+  cursor: default;
+  pointer-events: none;
+}
+```
+
+### center
+
+- `type` 类型  transform[默认值，css3变换] flexbox[flex布局] ie[IE9-]
+- `width` 宽度
+- `height` 高度
+
+`@util center([type=transform|flexbox|ie], [width], [height]);`
+
+```css
+/* before */
+
+/* position + transform */
+.center {
+  @util center;
+}
+
+/* position + margin */
+.center-ie {
+  @util center('ie8', 200, 280);
+}
+
+/* flex */
+.center-flex {
+  @util center('flexbox');
+}
+
+/* after */
+
+/* position + transform */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* position + margin */
+.center-ie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* flex */
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+```
+
+### vertical center
+
+`@util vertical-center;`
+
+```css
+/* before */
+.vam-box {
+  @util vertical-center;
+}
+
+/* after */
+.vam-box {
+}
+.vam-box:after {
+  display: inline-block;
+  content: "";
+  height: 100%;
+  vertical-align: middle
+}
+```
+
+### center-block
+
+`@util center-block;`
+
+```css
+/* before */
+.center-block {
+  @util center-block;
+}
+
+/* after */
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+### hr
+
+`@util hr;`
+
+```css
+/* before */
+.hr {
+  @util hr;
+}
+
+/* after */
+.hr {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  height: 0;
+  font-size: 0;
+  border-bottom: 1px solid #cdcdcd;
+}
+```
+
+### text-hide
+
+`@util text-hide;`
+
+```css
+/* before */
+.text-hide {
+  @util text-hide;
+}
+
+/* after */
+.text-hide {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+```
+### select-no-appearance
+
+`@util select-no-appearance;`
+
+```css
+/* before */
+.sna {
+  @util select-no-appearance;
+}
+
+/* after */
+.sna {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-overflow: "";
+  text-indent: .01px;
+}
+
+```
+
+### wrap
+
+`@util wrap;`
+
+```css
+/* before */
+.wrap { 
+  @util wrap;
+}
+
+/* after */
+.wrap {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+```
+
+### nowrap
+
+`@util nowrap;`
+
+```css
+/* before */
+.nowrap {
+  @util nowrap;
+}
+
+/* after */
+.nowrap {
+  white-space: nowrap;
+  word-wrap: normal;
+}
+```
+
+### triangle
+
+- `type` 类型  equ[全等三角形] iso[等边三角形] sca[不等边三角形]
+- `direction`  方向
+- `color` 颜色
+- `width` 宽度
+- `height` 高度
+
+`@util triangle([type=equ|iso|sca], [direction], [color], [width], [height]);`
+
+```css
+/* before */
+.arrow {
+  @util triangle();
+}
+.arrow-top {
+  @util triangle('iso', 'top', '#f00', 20, 10);
+}
+.arrow-bottom {
+  @util triangle('iso', 'bottom', '#f00', 20, 10);
+}
+.arrow-left {
+  @util triangle('iso', 'left', '#f00', 20, 10);
+}
+.arrow-right {
+  @util triangle('iso', 'right', '#f00', 20, 10);
+}
+.arrow-top-left {
+  @util triangle('iso', 'topLeft', '#f00', 20, 10);
+}
+.arrow-top-right {
+  @util triangle('iso', 'topRight', '#f00', 20, 10);
+}
+.arrow-bottom-left {
+  @util triangle('iso', 'bottomLeft', '#f00', 20, 10);
+}
+.arrow-bottom-right {
+  @util triangle('iso', 'bottomRight', '#f00', 20, 10);
+}
+
+/* after */
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #000 transparent transparent transparent;
+}
+.arrow-top {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #f00 transparent;
+}
+.arrow-bottom {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #f00 transparent transparent transparent;
+}
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 20px 5px 0;
+  border-color: transparent #f00 transparent transparent;
+}
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 20px;
+  border-color: transparent transparent transparent #f00;
+}
+.arrow-top-left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 20px 0 0;
+  border-color: #f00 transparent transparent transparent;
+}
+.arrow-top-right {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 10px 0;
+  border-color: transparent #f00 transparent transparent;
+}
+.arrow-bottom-left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 0 20px;
+  border-color: transparent transparent transparent #f00;
+}
+.arrow-bottom-right {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 10px 20px;
+  border-color: transparent transparent #f00 transparent;
+}
+```
+
+ ### rect
+ 
+ `@util rect([width],[height],[background-color]);`
+
+```css
+/* before */
+.rect-a {
+  @util rect(30,50,'#ff0');
+}
+.rect-b {
+  @util rect(30,*,'#ff0');
+}
+.rect-c {
+  @util rect(*,50,'#ff0');
+}
+.rect-d {
+  @util rect(*,*,'#ff0');
+}
+.rect-e {
+  @util rect(30,50,*);
+}
+
+/* after */
+.rect-a {
+  width: 30px;
+  height: 50px;
+  background-color: #ff0;
+}
+.rect-b {
+  width: 30px;
+  background-color: #ff0;
+}
+.rect-c {
+  height: 50px;
+  background-color: #ff0;
+}
+.rect-d {
+  background-color: #ff0;
+}
+.rect-e {
+  width: 30px;
+  height: 50px;
+}
+
+```
+
+### circle
+
+`@util circle([diameter],[radius],[background-color]);`
+
+```css
+/* before */
+.circle-a {
+  @util circle(50, '#ff0');
+}
+.circle-b {
+  @util circle(50, *);
+}
+
+/* after */
+.circle-a {
+  width: 50px;
+  height: 50px;
+  background-color: #ff0;
+  border-radius: 50%;
+}
+.circle-b {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+```
