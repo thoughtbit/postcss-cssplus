@@ -88,21 +88,6 @@ export default {
   // https://github.com/seaneking/postcss-fontpath
   fontPath: (options) => require("postcss-fontpath")(options),
 
-  // 类似sass语法
-  //------------------------------------------------------------------
-
-  // https://npmjs.com/package/postcss-mixins
-  // mixins: (options) => require("postcss-mixins")(options),
-
-  // https://npmjs.com/package/postcss-extend
-  // extend: (options) => require("postcss-extend")(options),
-
-  // https://npmjs.com/package/postcss-atroot
-  // extend: (options) => require("postcss-atroot")(options),
-
-  // https://npmjs.com/package/postcss-property-lookup
-  // extend: (options) => require("postcss-property-lookup")(options),
-
   // 属性简写
   //------------------------------------------------------------------
 
@@ -114,10 +99,4 @@ export default {
 
   // https://npmjs.com/package/postcss-simple-utils
   utils: (options) => require("postcss-simple-utils")(options),
-
-  // 浏览器前缀
-  //------------------------------------------------------------------
-
-  // https://npmjs.com/package/autoprefixer
-  autoprefixer: (options) => require("autoprefixer")(options),
 }

@@ -1,6 +1,6 @@
 {
   "name": "postcss-cssplus",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "PostCSS 插件包，一个现代的、灵活的、优雅的 CSS 处理器",
   "keywords": [
     "postcss",
@@ -25,7 +25,6 @@
     "!**/__tests__"
   ],
   "dependencies": {
-    "autoprefixer": "^7.1.1",
     "caniuse-api": "^2.0.0",
     "chalk": "^2.0.1",
     "pixrem": "^4.0.0",
