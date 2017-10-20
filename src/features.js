@@ -99,4 +99,10 @@ export default {
 
   // https://npmjs.com/package/postcss-simple-utils
   utils: (options) => require("postcss-simple-utils")(options),
+
+  // 浏览器前缀
+  //------------------------------------------------------------------
+
+  // https://npmjs.com/package/autoprefixer
+  autoprefixer: (options) => require("autoprefixer")(options),
 }

@@ -1,6 +1,5 @@
 import postcss from "postcss"
 import { isSupported } from "caniuse-api"
-
 import libraryFeatures from "./features"
 import featuresActivationMap from "./features-activation-map"
 import warnForDuplicates from "./warn-for-duplicates"
