@@ -68,7 +68,7 @@ export default {
   initial: (options) => require("postcss-initial")(options),
 
   // https://npmjs.com/package/pixrem
-  rem: (options) => require("pixrem")(options),  
+  rem: (options) => require("pixrem")(options),
 
   // https://npmjs.com/package/postcss-pseudoelements
   pseudoElements: (options) => require("postcss-pseudoelements")(options),
@@ -99,7 +99,7 @@ export default {
 
   // https://npmjs.com/package/postcss-atroot
   // extend: (options) => require("postcss-atroot")(options),
-  
+
   // https://npmjs.com/package/postcss-property-lookup
   // extend: (options) => require("postcss-property-lookup")(options),
 
