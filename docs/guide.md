@@ -458,14 +458,6 @@ Allows you to nest selectors
 |
 [Plugin documentation](https://github.com/robwierzbowski/node-pixrem)
 
-
-## Autoprefixer
-
-Vendor prefixes are automatically added (and removed if deprecated/useless
-depending on your browser scope) using
-**[autoprefixer](https://github.com/postcss/autoprefixer)**).
-
-
 ## Utils
 
 > 提供了 CSS 中常用代码片断的快捷方法声明，如清除浮动，文本超长溢出省略号、清除浮动、垂直居中、图片代替文字、文本换行、三角形等等<a class="link-ul" href="https://github.com/thoughtbit/postcss-simple-utils">Plugin documentation</a>
